@@ -10,6 +10,6 @@ Currently Version 1.0.1.
 
 ## Features 
 
-- [] Provides current prices of cryptocurrencies. 
-- [] Provides change in price for past 24 hours. 
+- [x] Provides current prices of cryptocurrencies. 
+- [x] Provides change in price for past 24 hours. 
 - [] Add, remove and reorder cryptocurrencies to list through search function.
