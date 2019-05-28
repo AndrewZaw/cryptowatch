@@ -7,6 +7,9 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 import "typeface-roboto";
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true
+  }
   /*palette: {
     textColor: "#ffffff",
     primary: { main: "#8AAAE5" },
@@ -21,13 +24,26 @@ const styles = {
 };
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      coinData: {}
+    };
+  }
+
+  componentDidMount() {
+    fetch("/api")
+      .then(res => res.json())
+      .then(response => this.setState({ coinData: response }));
+  }
+
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <Header />
-          <Body />
+          <Body coinData={this.state.coinData} />
           <Footer />
         </MuiThemeProvider>
       </div>
